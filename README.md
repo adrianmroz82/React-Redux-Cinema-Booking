@@ -1,6 +1,6 @@
 
 ## Cinema-Booking App
-The application was build with React, Redux, MaterialUI and Ramda.js
+The application was built with React, Redux, MaterialUI and Ramda.js
 
 Start project with:
 

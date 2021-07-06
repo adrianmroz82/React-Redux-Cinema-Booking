@@ -1,0 +1,22 @@
+.legend {
+  gap: 3vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  margin-top: 40px;
+}
+
+.legend-item {
+  display: inherit;
+}
+
+.reservation-button {
+  width: 15vw;
+}
+
+p {
+  padding-left: 15px;
+  text-align: center;
+}

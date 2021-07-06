@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500&display=swap');
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20vw;
+  font-size: 25px;
+}
+
+button {
+  font-size: 25px;
+  font-family: 'Source Code Pro', monospace;
+  cursor: pointer;
+  width: 300px;
+  height: 80px;
+}

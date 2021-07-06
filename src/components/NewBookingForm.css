@@ -1,0 +1,23 @@
+input {
+  cursor: pointer;
+  width: 100px;
+}
+
+.places-label {
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+.btn {
+  width: 310px;
+  height: 60px;
+}
+
+.text-field {
+  width: 180px;
+  height: 60px;
+}
+
+span {
+  right: 5px;
+}

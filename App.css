@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+.App {
+  text-align: center;
+  font-family: "Source Code Pro", monospace;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+.cell {
+  display: inline;
+  width: 4vw;
+  height: 80px;
+  font-size: 20px;
+  border: solid black;
+  margin: 2px;
+}
+.empty-cell {
+  border: none;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.taken {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.free {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: orange;
+}
+
+.confirmation-page {
+  text-align: left;
+  margin: 10px;
+}

@@ -1,8 +1,8 @@
-import { CinemaRow } from './CinemaSeats';
-import SeatsDescription from './SeatsDescription';
-import { iterate } from '../functions/functions';
+import { CinemaRow } from "../CinemaSeats/CinemaSeats";
+import { SeatsDescription } from "../SeatsDescription/SeatsDescription";
+import { iterate } from "../../functions/functions";
 
-export function VenueGrid(props) {
+export const VenueGrid = (props) => {
   const renderRows = (x) => {
     return (
       <CinemaRow
@@ -18,9 +18,7 @@ export function VenueGrid(props) {
 
   return (
     <div className="venue-grid-container">
-      <div className="venue-rows">
-        {iterate(props.venueSetup.maxX).map(renderRows)}
-      </div>
+      <div className="venue-rows">{iterate(props.venueSetup.maxX).map(renderRows)}</div>
       <SeatsDescription />
     </div>
   );

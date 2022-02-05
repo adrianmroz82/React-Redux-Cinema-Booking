@@ -1,20 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './routes/Home';
-import './App.css';
-import { venueSetupFetched } from './actions/bookingActions';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import Confirmation from './routes/Confirmation';
-import * as R from 'ramda';
-import { getFreeSpacesByRow } from './functions/functions';
-import VenueSetup from './routes/VenueSetup';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import * as R from "ramda";
+
+import { venueSetupFetched } from "./actions/bookingActions";
+
+import { getFreeSpacesByRow } from "./functions/functions";
+import VenueSetup from "./routes/VenueSetup";
+import Home from "./routes/Home";
+import Confirmation from "./routes/Confirmation";
+
+import "./App.css";
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch('http://localhost:3000/seats')
+    fetch("http://localhost:3000/seats")
       .then((res) => {
         return res.json();
       })
@@ -22,10 +24,7 @@ const App = () => {
         const maxSeatsNearby = R.reduce(
           R.max,
           0,
-          R.map(
-            (item) => item.length,
-            R.unnest(R.values(getFreeSpacesByRow(seats)))
-          )
+          R.map((item) => item.length, R.unnest(R.values(getFreeSpacesByRow(seats))))
         );
 
         dispatch(

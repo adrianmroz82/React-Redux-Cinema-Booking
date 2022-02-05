@@ -1,18 +1,16 @@
-import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import {
-  newBookingSubmit,
-  placesCountChange,
-  placesNearbyChange,
-} from '../actions/bookingActions';
-import * as R from 'ramda';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import TextField from '@material-ui/core/TextField';
-import Checkbox from '@material-ui/core/Checkbox';
-import { Button } from '@material-ui/core';
-import './NewBookingForm.css';
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import TextField from "@material-ui/core/TextField";
+import Checkbox from "@material-ui/core/Checkbox";
+import { Button } from "@material-ui/core";
+import * as R from "ramda";
 
-export function NewBookingForm(store) {
+import { newBookingSubmit, placesCountChange, placesNearbyChange } from "./../../actions/bookingActions";
+
+import "./NewBookingForm.css";
+
+export const NewBookingForm = (store) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -50,11 +48,7 @@ export function NewBookingForm(store) {
       dispatch(newBookingSubmit(spacesByRow));
       history.push(`/seats`);
     } else {
-      dispatch(
-        newBookingSubmit(
-          store.seats.filter((seat) => !seat.reserved).slice(0, store.amount)
-        )
-      );
+      dispatch(newBookingSubmit(store.seats.filter((seat) => !seat.reserved).slice(0, store.amount)));
       history.push(`/seats`);
     }
   };
@@ -63,7 +57,7 @@ export function NewBookingForm(store) {
     <form id="new-booking-form" className="box">
       <div className="places-label">
         <FormControlLabel
-          style={{ marginRight: '10px' }}
+          style={{ marginRight: "10px" }}
           control={
             <TextField
               className="text-field"
@@ -99,11 +93,10 @@ export function NewBookingForm(store) {
           form="new-booking-form"
           variant="outlined"
           color="default"
-          type="button"
-        >
+          type="button">
           Choose place
         </Button>
       </div>
     </form>
   );
-}
+};

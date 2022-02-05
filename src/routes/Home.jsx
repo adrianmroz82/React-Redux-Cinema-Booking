@@ -1,6 +1,6 @@
-import './Home.css';
-import { connect } from 'react-redux';
-import { NewBookingForm } from '../components/NewBookingForm';
+import { connect } from "react-redux";
+import { NewBookingForm } from "../components/NewBookingForm/NewBookingForm";
+import "./Home.css";
 
 const Home = (store) => {
   return (

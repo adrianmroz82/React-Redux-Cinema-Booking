@@ -1,7 +1,21 @@
-import { List, ListItem } from '@material-ui/core';
-import { connect } from 'react-redux';
+import { List, ListItem } from "@material-ui/core";
+import { connect } from "react-redux";
 
 const Confirmation = (store) => {
+  const RenderList = () => {
+    return (
+      <List>
+        {store.selectedSeats.map((seat) => {
+          return (
+            <ListItem key={seat.id}>
+              - row x{seat.cords.x}, place y{seat.cords.y} ({seat.id})
+            </ListItem>
+          );
+        })}
+      </List>
+    );
+  };
+
   return (
     <div className="confirmation-page">
       <div>
@@ -9,22 +23,10 @@ const Confirmation = (store) => {
       </div>
       <div>
         <div>You have chosen a place:</div>
-        <List>
-          {store.selectedSeats.map((seat) => {
-            return (
-              <ListItem key={seat.id}>
-                {' '}
-                - row x{seat.cords.x}, place y{seat.cords.y} ({seat.id})
-              </ListItem>
-            );
-          })}
-        </List>
+        <RenderList />
       </div>
       <div>
-        <b>
-          Thank you! In case of any problems, please contact the administration
-          department
-        </b>
+        <b>Thank you! In case of any problems, please contact the administration department</b>
       </div>
     </div>
   );

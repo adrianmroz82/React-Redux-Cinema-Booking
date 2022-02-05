@@ -21,3 +21,6 @@ input {
 span {
   right: 5px;
 }
+.form-wrapper {
+  background-color: orange;
+}

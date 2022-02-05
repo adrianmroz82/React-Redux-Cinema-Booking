@@ -1,6 +1,7 @@
-import { useDispatch } from 'react-redux';
-import { selectSeat, unselectSeat } from '../actions/bookingActions';
-import { iterate } from '../functions/functions';
+import { useDispatch } from "react-redux";
+
+import { selectSeat, unselectSeat } from "../../actions/bookingActions";
+import { iterate } from "../../functions/functions";
 
 export const CinemaCell = (props) => {
   const dispatch = useDispatch();
@@ -17,10 +18,7 @@ export const CinemaCell = (props) => {
     if (props.selectedSeats.includes(seat)) {
       dispatch(unselectSeat(seat));
     } else {
-      if (
-        !seat.reserved &&
-        props.newBooking.amount > props.selectedSeats.length
-      ) {
+      if (!seat.reserved && props.newBooking.amount > props.selectedSeats.length) {
         dispatch(selectSeat(seat));
       }
     }
@@ -33,11 +31,7 @@ export const CinemaCell = (props) => {
   return (
     <div
       onClick={() => toggleSelectionClick(seat)}
-      className={
-        'cell ' +
-        (seat.reserved ? 'taken ' : 'free ') +
-        (isSeatsSelected(seat) ? ' selected' : '')
-      }
+      className={"cell " + (seat.reserved ? "taken " : "free ") + (isSeatsSelected(seat) ? " selected" : "")}
     />
   );
 };

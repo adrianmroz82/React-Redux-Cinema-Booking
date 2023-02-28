@@ -1,10 +1,13 @@
 
-## Cinema-Booking App
-The application was built with React, Redux, MaterialUI and Ramda.js
+# Cinema-Booking App
 
-Start project with:
+## Tech Stack
 
-### `npm run api` and then `npm start`
+An application was built with React, Redux, MaterialUI and Ramda.js
+
+## Project Overview
+
+The purpose of the application is to reserve seats in the cinema.
 
 The landing page asks the client about the number of seats and if they should be placed next to each other. 
 When a client will choose more than 5 seats, this option will be disabled.

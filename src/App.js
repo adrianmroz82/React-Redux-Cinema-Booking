@@ -10,33 +10,29 @@ import VenueSetup from "./routes/VenueSetup";
 import Home from "./routes/Home";
 import Confirmation from "./routes/Confirmation";
 
+import data from "./db.json";
 import "./App.css";
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch("http://localhost:3000/seats")
-      .then((res) => {
-        return res.json();
-      })
-      .then((seats) => {
-        const maxSeatsNearby = R.reduce(
-          R.max,
-          0,
-          R.map((item) => item.length, R.unnest(R.values(getFreeSpacesByRow(seats))))
-        );
+    const seats = data.seats;
+    const maxSeatsNearby = R.reduce(
+      R.max,
+      0,
+      R.map((item) => item.length, R.unnest(R.values(getFreeSpacesByRow(seats))))
+    );
 
-        dispatch(
-          venueSetupFetched({
-            seats,
-            maxX: Math.max(...seats.map((seat) => seat.cords.x)),
-            maxY: Math.max(...seats.map((seat) => seat.cords.y)),
-            seatsAvailable: seats.filter((seat) => !seat.reserved).length,
-            maxSeatsNearby: maxSeatsNearby,
-          })
-        );
-      });
+    dispatch(
+      venueSetupFetched({
+        seats,
+        maxX: Math.max(...seats.map((seat) => seat.cords.x)),
+        maxY: Math.max(...seats.map((seat) => seat.cords.y)),
+        seatsAvailable: seats.filter((seat) => !seat.reserved).length,
+        maxSeatsNearby: maxSeatsNearby,
+      })
+    );
   }, []);
 
   return (
